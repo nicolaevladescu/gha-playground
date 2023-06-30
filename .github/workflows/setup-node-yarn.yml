@@ -11,11 +11,11 @@ jobs:
   setup:
     runs-on: ubuntu-22.04
     steps:
-      - name: Check runner versions
+      - name: Check versions before setup
         run: |
-          node --version
-          yarn --version
-          which yarn
+          Before setup - node version: (node --version)
+          Before setup - yarn version: $(yarn --version)
+          Before setup - yarn location: $(which yarn)
 
       - name: Setup node
         uses: actions/setup-node@v3
@@ -29,8 +29,8 @@ jobs:
           corepack enable
           corepack prepare "yarn@${YARN_VERSION}" --activate
 
-      - name: Check versions
+      - name: Check versions after setup
         run: |
-          node --version
-          yarn --version
-          which yarn
+          After setup - node version: (node --version)
+          After setup - yarn version: $(yarn --version)
+          After setup - yarn location: $(which yarn)

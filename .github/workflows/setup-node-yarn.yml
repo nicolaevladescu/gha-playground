@@ -17,6 +17,7 @@ jobs:
           echo "Before setup - yarn version: $(yarn --version)"
           echo "Before setup - yarn location: $(which yarn)"
           echo "Before setup - yarn real location: $(readlink -f $(which yarn))"
+          echo "Before setup - yarn cache dir: $(yarn config get cacheFolder)"
 
       - name: Setup node
         uses: actions/setup-node@v3
@@ -36,3 +37,4 @@ jobs:
           echo "After setup - yarn version: $(yarn --version)"
           echo "After setup - yarn location: $(which yarn)"
           echo "After setup - yarn real location: $(readlink -f $(which yarn))"
+          echo "After setup - yarn cache dir: $(yarn config get cacheFolder)"

@@ -1,0 +1,36 @@
+name: 'Custom node and yarn versions'
+
+on:
+  push
+
+concurrency:
+  group: '${{ github.workflow }}'
+  cancel-in-progress: false
+
+jobs:
+  setup:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Check runner versions
+        run: |
+          node --version
+          yarn --version
+          which yarn
+
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Setup yarn
+        env:
+          YARN_VERSION: 3.2.0
+	run: |
+          corepack enable
+          corepack prepare "yarn@${YARN_VERSION}" --activate
+
+      - name: Check versions
+        run: |
+          node --version
+          yarn --version
+          which yarn

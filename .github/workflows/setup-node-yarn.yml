@@ -13,9 +13,9 @@ jobs:
     steps:
       - name: Check versions before setup
         run: |
-          Before setup - node version: $(node --version)
-          Before setup - yarn version: $(yarn --version)
-          Before setup - yarn location: $(which yarn)
+          echo "Before setup - node version: $(node --version)"
+          echo "Before setup - yarn version: $(yarn --version)"
+          echo "Before setup - yarn location: $(which yarn)"
 
       - name: Setup node
         uses: actions/setup-node@v3
@@ -31,6 +31,6 @@ jobs:
 
       - name: Check versions after setup
         run: |
-          After setup - node version: (node --version)
-          After setup - yarn version: $(yarn --version)
-          After setup - yarn location: $(which yarn)
+          echo "After setup - node version: (node --version)"
+          echo "After setup - yarn version: $(yarn --version)"
+          echo "After setup - yarn location: $(which yarn)"

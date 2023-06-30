@@ -1,4 +1,4 @@
-name: 'Custom node and yarn versions'
+name: 'Setup custom node and yarn versions'
 
 on:
   push
@@ -20,12 +20,12 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: '16'
 
       - name: Setup yarn
         env:
-          YARN_VERSION: 3.2.0
-	run: |
+          YARN_VERSION: '3.2.0'
+        run: |
           corepack enable
           corepack prepare "yarn@${YARN_VERSION}" --activate
 

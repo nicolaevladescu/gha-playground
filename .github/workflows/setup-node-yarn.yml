@@ -13,7 +13,7 @@ jobs:
     steps:
       - name: Check versions before setup
         run: |
-          Before setup - node version: (node --version)
+          Before setup - node version: $(node --version)
           Before setup - yarn version: $(yarn --version)
           Before setup - yarn location: $(which yarn)
 
